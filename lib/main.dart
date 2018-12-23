@@ -46,7 +46,7 @@ class RaisedbuttonState extends State<Raisedbutton>{
   {
     showDialog(context: context,
         builder: (_){
-          return AlertDialog(content: Text("${_random.nextInt(6)}  ${_random.nextInt(6)+1}");
+          return AlertDialog(content: Text("${_random.nextInt(6)}  ${_random.nextInt(6)+1}"));
         }
     );
   }
