@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:first_flutter/second.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -11,6 +12,9 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
    return MaterialApp(
      title: "第一个app",
+     routes: {
+   "secondPage":(context)=>new SecondPage(),
+   },
      home: Scaffold(
        appBar: AppBar(
          title: Text("appBar的标题"),
@@ -32,26 +36,21 @@ class Raisedbutton extends StatefulWidget {
 
 }
 
-class RaisedbuttonState extends State<Raisedbutton>{
- final _random=Random();
+class RaisedbuttonState extends State<Raisedbutton> {
+
+  int i = 0;
+
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-    child: Text("点击按钮"),
-      onPressed: _onPressed,
+      child: Text("$i"),
+      onPressed: () {
+        Navigator.pushNamed(context, "secondPage");
+      },
     );
-  }
 
-  void _onPressed()
-  {
-    showDialog(context: context,
-        builder: (_){
-          return AlertDialog(content: Text("${_random.nextInt(6)}  ${_random.nextInt(6)+1}"));
-        }
-    );
   }
 }
-
 
 
 
