@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:first_flutter/second.dart';
 import 'package:flutter/material.dart';
-
+import 'package:english_words/english_words.dart';
 void main(){
 runApp(MyApp());
 }
@@ -38,12 +36,17 @@ class Raisedbutton extends StatefulWidget {
 
 class RaisedbuttonState extends State<Raisedbutton> {
 
-  int i = 0;
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      child: Text("$i"),
+    debugPrint("state中的build方法执行了");
+    final wordPair=new WordPair.random();
+
+    return
+      RaisedButton(
+      child:
+    Image.asset('images/dapang.jpg'),
+
       onPressed: () {
         Navigator.pushNamed(context, "secondPage");
       },
