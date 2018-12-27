@@ -12,7 +12,9 @@ class SecondPage extends StatelessWidget{
             ),
           ),
         ),
-        body: Center(
+        body:
+
+        Center(
           child: Image.asset('images/dapang.jpg'),
         ),
       ),
