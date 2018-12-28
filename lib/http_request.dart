@@ -8,7 +8,7 @@ String url;
     this.url=url;
   }
 
-  void request(String name,Callback callback)async{
+  void request(State state,String name,Callback callback)async{
     HttpClientResponse response;
     HttpClient httpClient=new HttpClient();
     HttpClientRequest httpClientRequest=await httpClient.getUrl(Uri.parse(url+name));
@@ -16,7 +16,8 @@ String url;
     if(response.statusCode == 200){
       var responsebody=await response.transform(utf8.decoder).join()  ;
       if(callback!=null){
-        callback.finish(responsebody);
+        callback.finish(responsebody,state);
+
       }
   }
 
@@ -24,5 +25,5 @@ String url;
 }
 }
  abstract class Callback{
-  void finish(String respone);
+  void finish(String respone,State state);
 }

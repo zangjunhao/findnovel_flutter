@@ -85,9 +85,7 @@ class _MyHomePageState extends State<MyHomePage>{
                         // shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
                         onPressed:(){
                         //  debugPrint(textEditingController.text);
-                          http.request(textEditingController.text,callback);
-                          setState(() {
-                          });
+                          http.request(this,textEditingController.text, callback);
                         },child: Text("查   询",style: TextStyle(color: Colors.black,fontSize: 16.5),),),
                     ))
              
@@ -109,12 +107,13 @@ class _MyHomePageState extends State<MyHomePage>{
 }
 
 class Callback1 implements Callback{
+  State state;
   @override
-  void finish(String respone) {
+  void finish(String respone,State state) {
+    state.setState((){});
     Map<String,dynamic> user=jsonDecode(respone);
-    debugPrint('${user['data']}');
    list=user['data'];
-    debugPrint(list[1]);
+    state.setState((){});
   }
 
 }
