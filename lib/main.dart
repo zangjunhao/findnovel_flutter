@@ -6,9 +6,9 @@ import 'dart:convert';
 import 'package:english_words/english_words.dart';
 
 List list=new List(0);
-void main(){
-runApp(MyApp());
-}
+
+void main()=>runApp(MyApp());
+
 
 class MyApp extends StatelessWidget{
 
@@ -85,19 +85,21 @@ class _MyHomePageState extends State<MyHomePage>{
                         // shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
                         onPressed:(){
                         //  debugPrint(textEditingController.text);
-                          http.request(this,textEditingController.text, callback);
+                          if(textEditingController.text.length!=0){
+                            http.request(this,textEditingController.text, callback);
+                          }
                         },child: Text("查   询",style: TextStyle(color: Colors.black,fontSize: 16.5),),),
                     ))
              
               ],),
-            Container(
-               height: 500.0,
-               child:  ListView.builder(
+
+               ListView.builder(
+               shrinkWrap: true,
                 itemExtent: 50.0,
                 itemCount: list.length,
                 itemBuilder:(BuildContext context, int index) {
                   return ListTile(title: Text("${list[index]}"));
-                }))
+                })
           ],
         )
     );
