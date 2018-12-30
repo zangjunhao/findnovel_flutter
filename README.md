@@ -1,8 +1,3 @@
-# first_flutter
-
-my first flutter app
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+# findnovel_flutter
+### 用flutter做的app
+涉及到`flutter布局`、`网络请求`、`JSON解析`等
